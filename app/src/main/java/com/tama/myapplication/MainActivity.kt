@@ -8,6 +8,10 @@ import android.widget.EditText
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
+    companion object {
+        private const val STATE_RESULT = "state_result"
+    }
+
     private lateinit var edtWidth: EditText
     private lateinit var edtHeight: EditText
     private lateinit var edtLength: EditText
@@ -17,6 +21,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        if (savedInstanceState != null) {
+            val result = savedInstanceState.getString(STATE_RESULT)
+            tvResult.text = result
+        }
 
         edtWidth = findViewById(R.id.edt_width)
         edtHeight = findViewById(R.id.edt_height)
@@ -54,5 +63,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 tvResult.text = volume.toString()
             }
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString(STATE_RESULT, tvResult.text.toString())
     }
 }
