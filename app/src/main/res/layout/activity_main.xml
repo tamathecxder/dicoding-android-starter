@@ -43,4 +43,19 @@
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
         android:lines="1" />
+
+    <Button
+        android:id="@+id/btn_calculate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/calculate" />
+
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/result"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 </LinearLayout>
